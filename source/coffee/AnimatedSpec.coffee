@@ -1,4 +1,5 @@
 describe "Animated", ->
+  animated = {}
   beforeEach ->
     animated = new Animated()
     animated.init()
