@@ -1,0 +1,1 @@
+function Animated(){}Animated.prototype.init=function(){$("head").append('<style id="animated-styles"></style>'),this.elements=this.getElements()},Animated.prototype.getElements=function(){var t=$("*[data-animated-property]");return t},Animated.prototype.canAnimate=function(t){return""===t.data("animated")?!1:""===t.data("animated-from")?!1:""===t.data("animated-to")?!1:!0};

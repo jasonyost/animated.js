@@ -7,20 +7,26 @@
   <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.0/jasmine_favicon.png">
   <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.0/jasmine.css">
 
-  <script type="text/javascript" src="lib/jasmine-2.0.0/jasmine.js"></script>
-  <script type="text/javascript" src="lib/jasmine-2.0.0/jasmine-html.js"></script>
-  <script type="text/javascript" src="lib/jasmine-2.0.0/boot.js"></script>
-  <script type="text/javascript" src="../jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="../jasmine-jquery/lib/jasmine-jquery.js"></script>
+  <script charset="utf-8" src="lib/jasmine-2.0.0/jasmine.js"></script>
+  <script charset="utf-8" src="lib/jasmine-2.0.0/jasmine-html.js"></script>
+  <script charset="utf-8" src="lib/jasmine-2.0.0/boot.js"></script>
+  <script charset="utf-8" src="../jquery/dist/jquery.min.js"></script>
+  <script charset="utf-8" src="../jasmine-jquery/lib/jasmine-jquery.js"></script>
 
   <!-- include source files here... -->
-
-
+  <script charset="utf-8" src="src/animated.js"></script>
   <!-- include spec files here... -->
-
+  <script src="spec/AnimatedSpec.js" charset="utf-8"></script>
 
 </head>
 
 <body>
+
+  <div class="test-content" style="display:none;">
+    <div id="test-animated-div" data-animated-property="opacity" data-animated-from="0" data-animated-to="1">Test Div Content</div>
+    <a href="#" data-animated-property id="test-animated-link">Test Link</a>
+    <p data-animated-property="opacity" id="test-animated-paragraph">Test Paragraph Content</p>
+  </div>
+
 </body>
 </html>
