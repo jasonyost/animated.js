@@ -28,7 +28,7 @@ Animated::addKeyFrames = (element) ->
   return
 
 Animated::canAnimate = (elementToTest) ->
-  return false  if elementToTest.data("animated-property") is `undefined`
-  return false  if elementToTest.data("animated-from") is `undefined`
-  return false  if elementToTest.data("animated-to") is `undefined`
+  return false  if elementToTest.data("animated-property") is undefined
+  return false  if elementToTest.data("animated-from") is undefined
+  return false  if elementToTest.data("animated-to") is undefined
   true
