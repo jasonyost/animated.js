@@ -24,11 +24,11 @@ describe "Animated", ->
     return
 
   it "should return true on canAnimate when all data tags are present", ->
-    expect(animated.canAnimate(animated.elements.eq(0))).toBe true
+    expect(animated.canAnimate($('.valid'))).toBe true
     return
 
   it "should return false on canAnimate when data tags are missing", ->
-    expect(animated.canAnimate(animated.elements.eq(1))).toBe false
+    expect(animated.canAnimate($('.invalid-missing-tags'))).toBe false
     return
 
   it "should return false on canAnimate when the from data tag is missing", ->
@@ -44,7 +44,17 @@ describe "Animated", ->
     return
 
   it "should write keyframe tags for valid elements", ->
-    expect($("#animated-styles")).toContainText "@keyframes opacity { from { 0; } to { 1; } }"
+    expect($("#animated-styles")).toContainText "@keyframes opacity-animation { from { 0; } to { 1; } }"
+    return
+
+  it "should write CSS for the keyframes in the animated-styles tag", ->
+    #check that it added a selector
+    expect($('#animated-styles')).toContainText "#opacity"
+    expect($('#animated-styles')).toContainText "-webkit-animation:"
+    expect($('#animated-styles')).toContainText "-moz-animation:"
+    expect($('#animated-styles')).toContainText "-o-animation:"
+    expect($('#animated-styles')).toContainText "animation:"
+    expect($('#opacity').css('opacity')).toEqual('0');
     return
 
   return

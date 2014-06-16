@@ -22,10 +22,10 @@ describe("Animated", function() {
     expect(animated.elements.length).toEqual(4);
   });
   it("should return true on canAnimate when all data tags are present", function() {
-    expect(animated.canAnimate(animated.elements.eq(0))).toBe(true);
+    expect(animated.canAnimate($('.valid'))).toBe(true);
   });
   it("should return false on canAnimate when data tags are missing", function() {
-    expect(animated.canAnimate(animated.elements.eq(1))).toBe(false);
+    expect(animated.canAnimate($('.invalid-missing-tags'))).toBe(false);
   });
   it("should return false on canAnimate when the from data tag is missing", function() {
     expect(animated.canAnimate($('.invalid-missing-from'))).toBe(false);
@@ -37,6 +37,14 @@ describe("Animated", function() {
     expect(animated.canAnimate($('.invalid'))).toBe(false);
   });
   it("should write keyframe tags for valid elements", function() {
-    expect($("#animated-styles")).toContainText("@keyframes opacity { from { 0; } to { 1; } }");
+    expect($("#animated-styles")).toContainText("@keyframes opacity-animation { from { 0; } to { 1; } }");
+  });
+  it("should write CSS for the keyframes in the animated-styles tag", function() {
+    expect($('#animated-styles')).toContainText("#opacity");
+    expect($('#animated-styles')).toContainText("-webkit-animation:");
+    expect($('#animated-styles')).toContainText("-moz-animation:");
+    expect($('#animated-styles')).toContainText("-o-animation:");
+    expect($('#animated-styles')).toContainText("animation:");
+    expect($('#opacity').css('opacity')).toEqual('0');
   });
 });
