@@ -15,13 +15,12 @@ describe "Animated", ->
     return
 
   it "should find all elements with the data animated property", ->
-    # 3 elements with the data-animated attribute have been added to the SpecRunner
     elCount = animated.getElements().length
-    expect(elCount).toEqual 3
+    expect(elCount).toEqual 4
     return
 
   it "should set the list of found elements to a property on init", ->
-    expect(animated.elements.length).toEqual 3
+    expect(animated.elements.length).toEqual 4
     return
 
   it "should return true on canAnimate when all data tags are present", ->
@@ -30,6 +29,18 @@ describe "Animated", ->
 
   it "should return false on canAnimate when data tags are missing", ->
     expect(animated.canAnimate(animated.elements.eq(1))).toBe false
+    return
+
+  it "should return false on canAnimate when the from data tag is missing", ->
+    expect(animated.canAnimate($('.invalid-missing-from'))).toBe false
+    return
+
+  it "should return false on canAnimate when the to data tag is missing", ->
+    expect(animated.canAnimate($('.invalid-missing-to'))).toBe false
+    return
+
+  it "should return false on canAnimate when all the required data tags are missing", ->
+    expect(animated.canAnimate($('.invalid'))).toBe false
     return
 
   it "should write keyframe tags for valid elements", ->
