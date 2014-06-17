@@ -2,6 +2,7 @@ describe "Animated", ->
   animated = {}
   beforeEach ->
     animated = new Animated()
+    jasmine.getFixtures().fixturesPath = 'test/jasmine/spec/javascripts/fixtures'
     return
 
   afterEach ->
@@ -15,18 +16,20 @@ describe "Animated", ->
 
   it "should find all elements with the data animated property", ->
     elCount = animated.getElements().length
-    expect(elCount).toEqual 4
+    expect(elCount).toEqual 0
     return
 
   it "should set the list of found elements to a property on init", ->
-    expect(animated.elements.length).toEqual 4
+    expect(animated.elements.length).toEqual 0
     return
 
   it "should return true on canAnimate when all data tags are present", ->
+    loadFixtures "test.html"
     expect(animated.canAnimate($('.valid'))).toBe true
     return
 
   it "should return false on canAnimate when data tags are missing", ->
+    loadFixtures "test.html"
     expect(animated.canAnimate($('.invalid-missing-tags'))).toBe false
     expect(animated.canAnimate($('.invalid-missing-from'))).toBe false
     expect(animated.canAnimate($('.invalid-missing-to'))).toBe false
