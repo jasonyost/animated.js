@@ -2,7 +2,6 @@ describe "Animated", ->
   animated = {}
   beforeEach ->
     animated = new Animated()
-    animated.init()
     return
 
   afterEach ->
@@ -29,17 +28,8 @@ describe "Animated", ->
 
   it "should return false on canAnimate when data tags are missing", ->
     expect(animated.canAnimate($('.invalid-missing-tags'))).toBe false
-    return
-
-  it "should return false on canAnimate when the from data tag is missing", ->
     expect(animated.canAnimate($('.invalid-missing-from'))).toBe false
-    return
-
-  it "should return false on canAnimate when the to data tag is missing", ->
     expect(animated.canAnimate($('.invalid-missing-to'))).toBe false
-    return
-
-  it "should return false on canAnimate when all the required data tags are missing", ->
     expect(animated.canAnimate($('.invalid'))).toBe false
     return
 

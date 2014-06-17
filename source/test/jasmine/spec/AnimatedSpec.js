@@ -4,7 +4,6 @@ describe("Animated", function() {
   animated = {};
   beforeEach(function() {
     animated = new Animated();
-    animated.init();
   });
   afterEach(function() {
     $("#animated-styles").remove();
@@ -26,14 +25,8 @@ describe("Animated", function() {
   });
   it("should return false on canAnimate when data tags are missing", function() {
     expect(animated.canAnimate($('.invalid-missing-tags'))).toBe(false);
-  });
-  it("should return false on canAnimate when the from data tag is missing", function() {
     expect(animated.canAnimate($('.invalid-missing-from'))).toBe(false);
-  });
-  it("should return false on canAnimate when the to data tag is missing", function() {
     expect(animated.canAnimate($('.invalid-missing-to'))).toBe(false);
-  });
-  it("should return false on canAnimate when all the required data tags are missing", function() {
     expect(animated.canAnimate($('.invalid'))).toBe(false);
   });
   it("should write keyframe tags for valid elements", function() {
