@@ -22,13 +22,14 @@ class Animated
         property = el.data("animated-property")
         from = el.data("animated-from")
         to = el.data("animated-to")
-        $("#animated-styles").append "@keyframes " + property + "-animation { from { " + from + "; } to { " + to + "; } }"
+        $("#animated-styles").append "@keyframes " + property + "-animation { from { " + property + ":" + from + "; } to { " + property + ":" + to + "; } }"
+        $("#animated-styles").append "@-webkit-keyframes " + property + "-animation { from { " + property + ":" + from + "; } to { " + property + ":" + to + "; } }"
         css = []
-        css.push selector + ' { '
-        css.push '-webkit-animation: ' + animationName + ' 1s linear 1s 1 forward;'
-        css.push '-moz-animation: ' + animationName + ' 1s linear 1s 1 forward;'
-        css.push '-o-animation: ' + animationName + ' 1s linear 1s 1 forward;'
-        css.push 'animation: ' + animationName + ' 1s linear 1s 1 forward;'
+        css.push selector + ':hover { '
+        css.push '-webkit-animation: 1s ease 0s alternate none infinite ' + animationName + ';'
+        css.push '-moz-animation: 1s ease 0s alternate none infinite ' + animationName + ';'
+        css.push '-o-animation: 1s ease 0s alternate none infinite ' + animationName + ';'
+        css.push 'animation: 1s ease 0s alternate none infinite ' + animationName + ';'
         css.push property + ':' + from + ';'
         css.push '}'
         cssString = css.join '\r\n'

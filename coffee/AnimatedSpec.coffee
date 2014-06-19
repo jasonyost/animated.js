@@ -16,11 +16,11 @@ describe "Animated", ->
 
   it "should find all elements with the data animated property", ->
     elCount = animated.getElements().length
-    expect(elCount).toEqual 0
+    expect(elCount).toEqual 4
     return
 
   it "should set the list of found elements to a property on init", ->
-    expect(animated.elements.length).toEqual 0
+    expect(animated.elements.length).toEqual 4
     return
 
   it "should return true on canAnimate when all data tags are present", ->
@@ -37,7 +37,8 @@ describe "Animated", ->
     return
 
   it "should write keyframe tags for valid elements", ->
-    expect($("#animated-styles")).toContainText "@keyframes opacity-animation { from { 0; } to { 1; } }"
+    expect($("#animated-styles")).toContainText "@keyframes opacity-animation { from { opacity:0; } to { opacity:1; } }"
+    expect($("#animated-styles")).toContainText "@-webkit-keyframes opacity-animation { from { opacity:0; } to { opacity:1; } }"
     return
 
   it "should write CSS for the keyframes in the animated-styles tag", ->
@@ -47,7 +48,7 @@ describe "Animated", ->
     expect($('#animated-styles')).toContainText "-moz-animation:"
     expect($('#animated-styles')).toContainText "-o-animation:"
     expect($('#animated-styles')).toContainText "animation:"
-    expect($('#opacity').css('opacity')).toEqual('0');
+    expect($('#opacity').css('opacity')).toEqual('1');
     return
 
   return
