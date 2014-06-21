@@ -8,27 +8,30 @@
     %script{charset: "utf-8", src: "../src/animated.js"}
 
   %body
-    %header
-      .row
+    %header.row
+      .large-12.columns
+        %h1 Animated.js
+        %hr/
+    %section.row
+      .large-12.columns
+        .panel
+          %h2 Purpose:
+          %p
+            Animated.js allows you to add data properties to any block level
+            element to apply CSS3 animations. For example to change the
+            opacity of an element:
+          %pre.language-markup
+            %code
+              &lt;div id="opacity" data-animated-property="opacity" data-animated-from="1" data-animated-to="0"&gt;&lt;/div&gt;
+          %h3
+            Produces:
+            %a#opacity{:href => "#", 'data-animated-property' => 'opacity', 'data-animated-from' => 1, 'data-animated-to' => 0}
+              Hover Over Me
+    %section.row
+      %header
         .large-12.columns
-          %h1 Animated.js
-          %hr/
-    %section
-      .row
-        .large-12.columns
-          .panel
-            %h2 Purpose:
-            %p
-              Animated.js allows you to add data properties to any block level
-              element to apply CSS3 animations. For example to change the
-              opacity of an element
-            %pre.language-markup
-              %code
-                &lt;div id="opacity" data-animated-property="opacity" data-animated-from="1" data-animated-to="0"&gt;&lt;/div&gt;
-            %h3
-              Produces:
-              %a#opacity{:href => "#", 'data-animated-property' => 'opacity', 'data-animated-from' => 1, 'data-animated-to' => 0}
-                Hover Over Me
+          %h2 Examples
+          %hr
 
 
 
